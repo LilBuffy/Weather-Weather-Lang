@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weather • Dashboard</title>
+<meta name="description" content="A minimal, monochrome weather dashboard powered by Open-Meteo." />
+
+<!-- Fonts: Fraunces (display/hero temperature), Inter (UI/body), JetBrains Mono (data + time) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Ambient grain overlay, purely decorative -->
+<div class="grain" aria-hidden="true"></div>
+
+<div class="app" id="app">
+
+  <!-- ============ HEADER ============ -->
+  <header class="topbar">
+    <div class="wordmark">
+      <span class="wordmark__dot" aria-hidden="true"></span>
+      WEATHER
+    </div>
+
+    <form class="search" id="search-form" role="search" aria-label="Search for a location">
+      <label for="search-input" class="visually-hidden">Search location</label>
+      <svg class="search__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/>
+        <line x1="11" y1="11" x2="15" y2="15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+      <input
+        type="text"
+        id="search-input"
+        class="search__input"
+        placeholder="Search location…"
+        autocomplete="off"
+        aria-describedby="search-status"
+      />
+      <button type="button" id="locate-btn" class="icon-btn" title="Use my location" aria-label="Use my current location">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="2" fill="currentColor"/>
+          <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="8" y1="0.5" x2="8" y2="3" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="8" y1="13" x2="8" y2="15.5" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="0.5" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="13" y1="8" x2="15.5" y2="8" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </button>
+      <button type="submit" class="icon-btn icon-btn--solid" title="Search" aria-label="Search">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+
+    <div class="topbar__right">
+      <div class="unit-switch" role="group" aria-label="Temperature unit">
+        <button type="button" class="unit-switch__btn is-active" id="unit-c" aria-pressed="true">°C</button>
+        <button type="button" class="unit-switch__btn" id="unit-f" aria-pressed="false">°F</button>
+      </div>
+      <button type="button" id="refresh-btn" class="icon-btn" title="Refresh" aria-label="Refresh weather data">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13.5 8A5.5 5.5 0 1 1 11.9 4.1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M14 2.5V5.5H11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <p id="search-status" class="visually-hidden" role="status" aria-live="polite"></p>
+
+  <!-- ============ SEARCH RESULTS DROPDOWN ============ -->
+  <ul id="search-results" class="search-results" hidden></ul>
+
+  <!-- ============ STATUS STATES ============ -->
+  <div id="status-panel" class="status-panel" hidden>
+    <div class="status-panel__inner">
+      <div class="loader" id="loader" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p id="status-text">Fetching weather data…</p>
+      <button type="button" id="status-retry" class="text-btn" hidden>Try again</button>
+    </div>
+  </div>
+
+  <!-- ============ MAIN DASHBOARD ============ -->
+  <main id="dashboard" class="dashboard" hidden>
+
+    <!-- ---- Hero / current conditions ---- -->
+    <section class="hero" aria-labelledby="location-name">
+      <div class="hero__top">
+        <div class="hero__location">
+          <h1 id="location-name">—</h1>
+          <p id="location-sub" class="hero__sub">—</p>
+        </div>
+        <div class="hero__clock">
+          <time id="current-time">--:--</time>
+          <div id="current-date" class="hero__date">—</div>
+        </div>
+      </div>
+
+      <div class="hero__main">
+        <div class="hero__temp-block">
+          <div class="hero__temp">
+            <span id="current-temp">--</span><span class="hero__deg">°</span>
+          </div>
+          <div class="hero__condition">
+            <div id="current-icon" class="weather-icon weather-icon--lg" aria-hidden="true"></div>
+            <span id="current-condition">—</span>
+          </div>
+          <p id="feels-like" class="hero__feels">Feels like —°</p>
+        </div>
+
+        <!-- Signature element: sun-arc showing progress between sunrise & sunset -->
+        <div class="sun-arc" aria-hidden="true">
+          <svg id="sun-arc-svg" viewBox="0 0 220 130" width="220" height="130">
+            <path id="sun-arc-path" d="M 14 118 A 96 96 0 0 1 206 118" fill="none" stroke="var(--gray-700)" stroke-width="1" stroke-dasharray="1 5" stroke-linecap="round"/>
+            <circle id="sun-arc-marker" cx="14" cy="118" r="4" fill="var(--white)"/>
+          </svg>
+          <div class="sun-arc__labels">
+            <div>
+              <span class="sun-arc__label">Sunrise</span>
+              <span id="sunrise-time" class="sun-arc__value">--:--</span>
+            </div>
+            <div class="sun-arc__labels-right">
+              <span class="sun-arc__label">Sunset</span>
+              <span id="sunset-time" class="sun-arc__value">--:--</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick stat chips -->
+      <div class="chip-row">
+        <div class="chip"><span class="chip__label">Humidity</span><span id="chip-humidity" class="chip__value">--%</span></div>
+        <div class="chip"><span class="chip__label">Wind</span><span id="chip-wind" class="chip__value">-- km/h</span></div>
+        <div class="chip"><span class="chip__label">Pressure</span><span id="chip-pressure" class="chip__value">-- hPa</span></div>
+        <div class="chip"><span class="chip__label">Precipitation</span><span id="chip-precip" class="chip__value">-- mm</span></div>
+      </div>
+    </section>
+
+    <!-- ---- Hourly forecast ---- -->
+    <section class="panel" aria-labelledby="hourly-heading">
+      <div class="panel__head">
+        <h2 id="hourly-heading">Hourly forecast</h2>
+      </div>
+      <div id="hourly-scroll" class="hourly-scroll" tabindex="0" aria-label="Hourly forecast, scroll horizontally"></div>
+    </section>
+
+    <div class="two-col">
+      <!-- ---- 7 day forecast ---- -->
+      <section class="panel" aria-labelledby="daily-heading">
+        <div class="panel__head">
+          <h2 id="daily-heading">7-day forecast</h2>
+        </div>
+        <ul id="daily-list" class="daily-list"></ul>
+      </section>
+
+      <!-- ---- Weather details ---- -->
+      <section class="panel" aria-labelledby="details-heading">
+        <div class="panel__head">
+          <h2 id="details-heading">Details</h2>
+        </div>
+        <ul id="details-list" class="details-list"></ul>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <span>Data from <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a></span>
+      <span id="last-updated">—</span>
+    </footer>
+
+  </main>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
