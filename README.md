@@ -12,29 +12,25 @@ Basically:
 
 No PHP. No MySQL. No backend. No fucking **pizdets**.
 
-## 🪦 Project Status
+🟢 Project Status
 
-**RIP / ABANDONED**
+ACTIVE / STILL ALIVE
 
-This project was created as a learning and school project and is no longer actively maintained.
+The project is still online and functional, but it is no longer actively maintained.
 
-It served its purpose.
+It served its purpose as a learning and school project, and the website is still available for anyone who wants to fuck around with it.
 
-The weather still exists.
+The weather is still working.
 
-The dashboard does not.
+The dashboard is still alive.
 
-**Вечная память, Weather Dashboard.**
+For now.
 
-You were simple.
+Пока живой, братан.
 
-You were useful.
+No updates. No fancy new features.
 
-You checked the weather.
-
-Then you fucking died.
-
-**Конец.**
+Weather-weather nga lang ngani jusq nababaliw na ko.
 
 ## 🌤️ Current Weather
 
