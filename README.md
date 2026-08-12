@@ -1,6 +1,6 @@
 # 🌤️ Weather Dashboard
 
-A fucking minimalist weather dashboard built with **HTML, CSS, and Vanilla JavaScript**.
+A fucking weather dashboard built with **HTML, CSS, and Vanilla JavaScript**.
 
 It uses the **Open Meteo API** to fetch real weather data and displays it through a clean black and white interface.
 
