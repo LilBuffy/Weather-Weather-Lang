@@ -1,10 +1,16 @@
 # 🌤️ Weather Dashboard
 
-A modern minimalist weather dashboard built entirely with **HTML, CSS, and Vanilla JavaScript**.
+A fucking modern minimalist weather dashboard built entirely with **HTML, CSS, and Vanilla JavaScript**.
 
 The website retrieves real time weather information from the **Open Meteo API** and displays it through a clean black and white interface.
 
 Users can search for locations, view current weather conditions, check hourly and 7 day forecasts, and explore additional weather information without an account, backend, or database.
+
+Basically:
+
+**Search location → API does its shit → weather appears.**
+
+No PHP. No MySQL. No backend. No fucking **pizdets**.
 
 ## 🪦 Project Status
 
@@ -29,12 +35,6 @@ You checked the weather.
 Then you fucking died.
 
 **Конец.**
-
-Basically:
-
-**Search location → API does its shit → weather appears.**
-
-No PHP. No MySQL. No backend. No fucking **pizdets**.
 
 ## 🌤️ Current Weather
 
