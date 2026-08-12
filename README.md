@@ -1,40 +1,52 @@
 # 🌤️ Weather Dashboard
 
-A fucking modern minimalist weather dashboard built entirely with **HTML, CSS, and Vanilla JavaScript**.
+A fucking minimalist weather dashboard built with **HTML, CSS, and Vanilla JavaScript**.
 
-The website retrieves real time weather information from the **Open Meteo API** and displays it through a clean black and white interface.
+It uses the **Open Meteo API** to fetch real weather data and displays it through a clean black and white interface.
 
-Users can search for locations, view current weather conditions, check hourly and 7 day forecasts, and explore additional weather information without an account, backend, or database.
+Users can search locations, view current conditions, check hourly and 7 day forecasts, use their current location, switch temperature units, and save their last location.
 
 Basically:
 
 **Search location → API does its shit → weather appears.**
 
-No PHP. No MySQL. No backend. No fucking **pizdets**.
+No PHP.
 
-🟢 Project Status
+No MySQL.
 
-ACTIVE / STILL ALIVE
+No backend.
 
-The project is still online and functional, but it is no longer actively maintained.
+No fucking **pizdets**.
 
-It served its purpose as a learning and school project, and the website is still available for anyone who wants to fuck around with it.
+## 🟢 Project Status
 
-The weather is still working.
+**ACTIVE / STILL ALIVE**
 
-The dashboard is still alive.
+Click me: https://lilbuffy.github.io/Weather-Weather-Lang/
 
-For now.
+Still online.
 
-Пока живой, братан.
+Still functional.
 
-No updates. No fancy new features.
+Still showing weather.
 
-Weather-weather nga lang ngani jusq nababaliw na ko.
+Not actively maintained though.
+
+This was mainly a learning and school project, but the website is still alive for anyone who wants to fuck around with it.
+
+**Пока живой, братан.**
+
+No updates.
+
+No fancy new features.
+
+Just weather.
+
+**Weather-weather nga lang, jusq.**
 
 ## 🌤️ Current Weather
 
-Displays weather information for the selected location, including:
+Displays:
 
 * Current temperature
 * Weather condition
@@ -48,11 +60,13 @@ Displays weather information for the selected location, including:
 * Sunrise and sunset
 * Local date and time
 
+Basically, enough information to know whether going outside is a good idea or absolute **govno**.
+
 ## 🔎 Location Search
 
 Users can search for a city or location.
 
-The system uses geocoding to convert the location name into coordinates before retrieving the weather data.
+The system uses geocoding to convert the location name into coordinates before requesting weather data.
 
 ```text
 City Name
@@ -68,28 +82,32 @@ Weather Data
 
 Simple shit.
 
+No black magic.
+
+Just APIs doing their fucking job.
+
 ## 📍 Current Location
 
 Users can optionally use their device location through the browser's **Geolocation API**.
 
-Location permission is only requested when the user chooses to use their current location.
+Location permission is only requested when the user chooses to use it.
 
 No sneaky bullshit.
 
 ## ⏱️ Hourly Forecast
 
-Displays upcoming hourly weather information such as:
+Shows upcoming hourly information:
 
 * Time
 * Temperature
 * Weather condition
 * Precipitation probability
 
-The hourly forecast can be horizontally scrolled on smaller screens.
+The forecast can be horizontally scrolled on smaller screens.
 
 ## 📅 7 Day Forecast
 
-Provides daily weather information including:
+Shows:
 
 * Day
 * Weather condition
@@ -97,7 +115,7 @@ Provides daily weather information including:
 * Minimum temperature
 * Precipitation probability
 
-Enough information to know whether going outside is a good idea or absolute **govno**.
+Enough information to decide whether leaving the house is smart or **пиздец**.
 
 ## 🌡️ Celsius / Fahrenheit
 
@@ -106,34 +124,36 @@ Users can switch between:
 * °C Celsius
 * °F Fahrenheit
 
-Temperature values throughout the dashboard update accordingly.
+Temperature values update across the dashboard.
 
 ## 🔄 Weather Refresh
 
-A refresh button allows users to retrieve the latest weather information without reloading the entire webpage.
+A refresh button retrieves the latest weather without reloading the entire page.
 
 Because apparently pressing **F5** was not enough.
 
 ## 💾 Last Location
 
-The website uses **localStorage** to remember the previously selected location.
-
-Basic preferences such as:
+Uses **localStorage** to remember:
 
 * Selected location
 * Temperature unit
 
-can be stored locally.
+No account.
 
-No account or database required.
+No database.
+
+No PHP.
+
+Just the browser remembering your shit.
 
 ## ⚡ Loading States
 
-While weather data is being retrieved, the dashboard displays a loading animation instead of sitting there looking fucking dead.
+While weather data is loading, the dashboard displays a loading animation instead of sitting there looking fucking dead.
 
 ## ❌ Error Handling
 
-The website handles common problems such as:
+Handles problems such as:
 
 * Invalid locations
 * Location not found
@@ -142,19 +162,21 @@ The website handles common problems such as:
 * Location permission denial
 * Geolocation unavailable
 
-Instead of exposing ugly technical errors, users receive simple messages such as:
+Instead of throwing ugly technical errors at the user:
 
 > "Couldn't find that location."
 
 Much better than:
 
-> `TypeError: undefined is not a function`
+```text
+TypeError: undefined is not a function
+```
 
-**Blyat.**
+**BLYAT.**
 
 ## 📱 Responsive Design
 
-The dashboard is designed for:
+Designed for:
 
 * Desktop
 * Laptop
@@ -162,13 +184,11 @@ The dashboard is designed for:
 * Android
 * iPhone
 
-The layout automatically adapts to different screen sizes.
+The layout adapts to different screen sizes.
 
 ## 🎨 Design
 
-The website follows a strict **black and white minimalist aesthetic**.
-
-Main colors:
+Strict **black and white minimalist aesthetic**.
 
 ```text
 Black
@@ -178,7 +198,7 @@ White
 #FFFFFF
 ```
 
-Subtle gray tones may be used for secondary information and UI elements.
+Subtle gray tones may be used for secondary information.
 
 The design focuses on:
 
@@ -190,17 +210,25 @@ The design focuses on:
 * Subtle animations
 * Clear information hierarchy
 
-No colorful weather gradients.
+No rainbow weather gradients.
 
-Just **black, white, weather, and fucking simplicity.**
+No unnecessary bullshit.
 
-Basically, a weather dashboard that doesn't look like it was made at 3 AM five minutes before the school deadline.
+Just:
+
+**Black.**
+
+**White.**
+
+**Weather.**
+
+**Fucking simplicity.**
 
 ## 🌐 API
 
-The website uses the **Open Meteo API** to retrieve real weather information.
+Uses the **Open Meteo API** for real weather data.
 
-It provides data such as:
+The API provides:
 
 * Location information
 * Coordinates
@@ -215,7 +243,7 @@ It provides data such as:
 * Sunrise and sunset
 * Timezone information
 
-Because the project is frontend only, JavaScript communicates directly with the public API.
+Since the project is frontend only, JavaScript communicates directly with the public API.
 
 ## 🛠️ Technology Stack
 
@@ -245,7 +273,7 @@ Because the project is frontend only, JavaScript communicates directly with the 
 * Backend
 * Database
 
-The architecture is basically:
+The whole architecture:
 
 ```text
 User
@@ -258,14 +286,16 @@ Open Meteo API
   ↓
 JSON Weather Data
   ↓
-JavaScript processes data
+JavaScript
   ↓
-HTML + CSS displays it
+HTML + CSS
+  ↓
+Weather
 ```
 
 Simple as fuck.
 
-Which is actually good for learning.
+And that's the point.
 
 ## 📁 Project Structure
 
@@ -281,6 +311,12 @@ weather-dashboard/
     └── app.js
 ```
 
-Clean. Small. Straightforward.
+Clean.
 
-No **govno** folder structure with 47 unnecessary files.
+Small.
+
+Straightforward.
+
+No **govno** folder structure with 47 files named `final_final_REAL.js`.
+
+**Конец.**
