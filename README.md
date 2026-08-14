@@ -1,64 +1,59 @@
 # 🌤️ Weather Dashboard
 
-A fucking weather dashboard built with **HTML, CSS, and Vanilla JavaScript**.
+Isang fucking **weather dashboard** gamit ang HTML, CSS, at Vanilla JavaScript.
 
-It uses the **Open Meteo API** to fetch real weather data and displays it through a clean black and white interface.
+Gumagamit ng **Open Meteo API** para kumuha ng totoong weather data at ipakita ito sa simple black and white interface.
 
-Users can search locations, view current conditions, check hourly and 7 day forecasts, use their current location, switch temperature units, and save their last location.
+Pwede mag search ng location, tingnan ang current weather, hourly forecast, 7 day forecast, current location, temperature units, at last location.
 
-Basically: **Search location → API does its shit → weather appears.**
+**Search → API mag shit → Weather appears.**
 
 ## 🟢 Project Status
 
 **ACTIVE / STILL ALIVE**
 
-Click me: https://lilbuffy.github.io/Weather-Weather-Lang/
+Click me: https://lilbuffy.github.io/Weather-Weather-Lang
 
-Still online. Still functional. Still showing weather. Not actively maintained though. This was mainly a learning and school project, but the website is still alive for anyone who wants to fuck around with it.
+Online pa. Gumagana pa. Nagpapakita pa ng weather.
 
-**Пока живой, братан.** No updates. No fancy new features. Just weather. **Weather-weather nga lang ngani, jusq.**
+Hindi actively maintained, pero buhay pa rin ang website.
+
+**Пока живой, братан.**
+
+Walang bagong updates. Walang fancy bullshit. Basta ang buhay ay weather-weather lang -kuyakim.
 
 ## 🌤️ Current Weather
 
-Displays:
+Makikita ang:
 
-* Current temperature
+* Temperature
 * Weather condition
-* Feels like temperature
+* Feels like
 * Humidity
-* Wind speed
-* Wind direction
+* Wind speed at direction
 * Atmospheric pressure
 * Precipitation
 * Cloud cover
-* Sunrise and sunset
-* Local date and time
+* Sunrise at sunset
+* Local date at time
 
 ## 🔎 Location Search
 
-Users can search for a city or location. The system uses geocoding to convert the location name into coordinates before requesting weather data.
+Mag search ng city o location.
 
-```text
-City Name
-   ↓
-Geocoding API
-   ↓
-Latitude + Longitude
-   ↓
-Weather API
-   ↓
-Weather Data
-```
+**City → Coordinates → Weather API → Weather**
 
-Simple shit. No black magic. Just APIs doing their fucking job.
+Simple shit. Walang black magic. APIs lang na gumagawa ng fucking trabaho nila.
 
 ## 📍 Current Location
 
-Users can optionally use their device location through the browser's **Geolocation API**. Location permission is only requested when the user chooses to use it. No sneaky bullshit.
+Pwede gamitin ang device location gamit ang browser Geolocation API.
+
+Hihingi lang ng permission kapag pinili mong gamitin.
+
+**Walang sneaky bullshit.**
 
 ## ⏱️ Hourly Forecast
-
-Shows upcoming hourly information:
 
 * Time
 * Temperature
@@ -67,60 +62,62 @@ Shows upcoming hourly information:
 
 ## 📅 7 Day Forecast
 
-Shows:
-
 * Day
 * Weather condition
 * Maximum temperature
 * Minimum temperature
 * Precipitation probability
 
-## 🌡️ Celsius / Fahrenheit
+## 🌡️ Temperature Units
 
-Users can switch between:
+Pwede mag switch sa:
 
 * °C Celsius
 * °F Fahrenheit
 
 ## 🔄 Weather Refresh
 
-A refresh button retrieves the latest weather without reloading the entire page because apparently pressing **F5** was not enough.
+May refresh button para kumuha ng latest weather nang hindi nire reload buong page.
+
+Kasi apparently hindi sapat ang **F5**, noh?. 💀
 
 ## 💾 Last Location
 
-Uses **localStorage** to remember:
+Gumagamit ng **localStorage** para maalala:
 
-* Selected location
+* Last location
 * Temperature unit
 
 ## ⚡ Loading States
 
-While weather data is loading, the dashboard displays a loading animation instead of sitting there looking fucking dead.
+May sobrang nakapaangas na goddamn ohmygoodness na loading animation habang kumukuha ng weather data.
+
+Hindi lang basta nakatambay ang page na mukhang patay.
 
 ## ❌ Error Handling
 
-Handles problems such as:
+Hinahandle ang:
 
 * Invalid locations
 * Location not found
 * Network errors
 * API errors
 * Location permission denial
-* Geolocation unavailable
+* Geolocation errors
 
-Instead of throwing ugly technical errors at the user:
+Imbes na maglabas ng nakakabaliw na error:
 
-> "Couldn't find that location."
+**"Couldn't find that location."**
 
-Much better than:
+Hindi yung:
 
-```text
-TypeError: undefined is not a function
-```
+`TypeError: undefined is not a function`
+
+**Tangina, mas maayos.**
 
 ## 📱 Responsive Design
 
-Designed for:
+Gumagana sa:
 
 * Desktop
 * Laptop
@@ -130,39 +127,34 @@ Designed for:
 
 ## 🌐 API
 
-Uses the **Open Meteo API** for real weather data.
+Gumagamit ng **Open Meteo API** para sa:
 
-The API provides:
-
-* Location information
+* Location data
 * Coordinates
 * Current weather
 * Hourly forecast
 * Daily forecast
-* Weather codes
 * Temperature
 * Humidity
 * Wind
 * Precipitation
-* Sunrise and sunset
-* Timezone information
+* Sunrise at sunset
+* Timezone
 
 ## 🛠️ Technology Stack
 
-### Frontend
+**Frontend**
 
 * HTML5
 * CSS3
 * Vanilla JavaScript
 
-### API
+**API**
 
 * Open Meteo
 
-### Browser APIs
+**Browser APIs**
 
 * Geolocation API
 * localStorage API
 * Fetch API
-
-**Конец.**
