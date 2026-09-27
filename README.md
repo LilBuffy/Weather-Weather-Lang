@@ -1,108 +1,39 @@
-# 🌤️ Weather Dashboard
+# Weather Dashboard
 
-Isang fucking **Weather Dashboard** built with **HTML, CSS, and Vanilla JavaScript**.
+A fucking Weather Dashboard built with **HTML, CSS, and Vanilla JavaScript**, ginawa para kumuha ng totoong weather data gamit ang **Open Meteo API** at gawing readable yung buong kaguluhan. Search ka ng city, kukunin yung coordinates, tatawag sa API, tapos BOOM, may weather ka na. City → Coordinates → API → Weather. Simple shit. БЛЯТЬ.
 
-Uses the **Open Meteo API** para kumuha ng totoong weather data at ipakita ito SA IMO NGANIIIII
+**Project Status:** ACTIVE / STILL ALIVE
 
-**Search → API mag shit → Weather appears.** БЛЯТЬ.
+**CLICK ME:** https://lilbuffy.github.io/Weather-Weather-Lang/
 
-## 🟢 Project Status
+**WARNING:** Your antivirus or browser security might randomly think the website is suspicious. Relax, weather data lang ang kinukuha nito. Walang hacking, walang dark magic, walang fucking bullshit. Pero syempre, huwag pa rin blindly trust random websites. Check the repository kung gusto mong siguraduhin kung ano talaga yung pinapatakbo mo.
 
-**ACTIVE / STILL ALIVE**
+## What This Shit Can Do
 
-CLICK ME: https://lilbuffy.github.io/Weather-Weather-Lang
+The dashboard shows current weather information including **temperature, weather condition, feels like temperature, humidity, wind speed and direction, atmospheric pressure, precipitation, cloud cover, sunrise and sunset, and local date and time**. May hourly forecast din na may time, temperature, weather condition, at precipitation probability, plus a **7 day forecast** para makita mo yung daily conditions, maximum and minimum temperature, at chance of precipitation.
 
-🚨 YOUR ANTIVIRUS MIGHT THINK THIS WEBSITE IS SUSPICIOUS, BUT RELAX, IT'S JUST FUCKING WEATHER DATA. NO HACKING, NO DARK MAGIC. 🚨
+You can search for a location by city name, with the system converting the location into coordinates before requesting the actual weather data. May option din gamitin ang browser's **Geolocation API** para kunin ang current location mo, pero browser permission ang magdedesisyon kung papayagan mo. Walang sneaky bullshit na biglang susulpot at magsasabing alam niya kung nasaan ka.
 
-Online pa. Gumagana pa. Nagpapakita pa ng weather.
+Temperature units can also be switched between **Celsius and Fahrenheit**, while Open Meteo handles the location data, coordinates, current weather, forecasts, temperature, humidity, wind, precipitation, sunrise and sunset, and timezone information.
 
-Hindi actively maintained, pero buhay pa rin.
+## API
 
-**Пока живой, братан.**
+The project uses **Open Meteo** for the actual weather data and location services. The frontend sends requests through the browser, receives the API response, then turns that raw data into the weather dashboard instead of dumping some unreadable JSON shit sa screen.
 
-## 🌤️ Current Weather
+Basically:
 
-Makikita ang:
+**Search Location → Get Coordinates → Call API → Receive Data → Display Weather**
 
-* 🌡️ Temperature
-* 🌤️ Weather condition
-* 🌡️ Feels like
-* 💧 Humidity
-* 💨 Wind speed and direction
-* 📊 Atmospheric pressure
-* 🌧️ Precipitation
-* ☁️ Cloud cover
-* 🌅 Sunrise and sunset
-* 🕐 Local date and time
+APIs doing their fucking job. Ako taga display lang.
 
-## 🌐 API
+## Tech Stack
 
-Uses **Open Meteo** for:
+**HTML5, CSS3, Vanilla JavaScript, Open Meteo API, Geolocation API, localStorage, and Fetch API.**
 
-* Location data
-* Coordinates
-* Current weather
-* Hourly forecast
-* Daily forecast
-* Temperature
-* Humidity
-* Wind
-* Precipitation
-* Sunrise and sunset
-* Timezone
+No backend. No database. No giant framework. No 900MB of bullshit para lang sabihin sa'yo na 31°C sa labas.
 
-## 🔎 Location Search
+## About
 
-**City → Coordinates → Weather API → Weather**
+This was originally created as a **school project** and is still online and functional, although it is **not actively maintained**. It was mainly built to practice working with APIs, browser APIs, asynchronous JavaScript, location searching, weather data, and responsive frontend development.
 
-Simple shit. Walang black magic. APIs lang na gumagawa ng fucking trabaho nila.
-
-## 📍 Current Location
-
-Uses browser **Geolocation API** kapag pinili mong gamitin ang current location.
-
-Hihingi lang ng permission. **Walang sneaky bullshit.**
-
-## ⏱️ Hourly Forecast
-
-* Time
-* Temperature
-* Weather condition
-* Precipitation probability
-
-## 📅 7 Day Forecast
-
-* Day
-* Weather condition
-* Maximum temperature
-* Minimum temperature
-* Precipitation probability
-
-## 🌡️ Temperature Units
-
-Switch between:
-
-* °C Celsius
-* °F Fahrenheit
-
-## 🛠️ Technology Stack
-
-**Frontend**
-
-* HTML5
-* CSS3
-* Vanilla JavaScript
-
-**API**
-
-* Open Meteo
-
-**Browser APIs**
-
-* Geolocation API
-* localStorage API
-* Fetch API
-
-**Basically, it's a weather app without 900MB of bullshit. Verdammt.**
-
-Ang buhay ay widir widir lang -koya kem
+Basically, ginawa ko lang dapat na weather app, pero kailangan ko pang kausapin ang API, geolocation, localStorage, forecasts, timezones, at kung anu anong fucking weather data bago ko makuha yung simpleng sagot na **“mainit.”**
